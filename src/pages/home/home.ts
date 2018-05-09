@@ -8,11 +8,11 @@ import { ActionSheetController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController,public actionSheetCtrl: ActionSheetController) {
+  constructor(public navCtrl: NavController, public actionSheetCtrl: ActionSheetController) {
 
   }
 
-  tapAction(){
+  tapAction() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'プロフィールの変更',
       buttons: [
@@ -22,12 +22,12 @@ export class HomePage {
           handler: () => {
             console.log('Destructive clicked');
           }
-        },{
+        }, {
           text: 'Archive',
           handler: () => {
             console.log('Archive clicked');
           }
-        },{
+        }, {
           text: 'Cancel',
           role: 'cancel',
           handler: () => {
