@@ -14,18 +14,24 @@ export class HomePage {
       "userId": 1,
       "name": "yoshiki",
       "birthday": "12/20",
+      "imgUrl": "../assets/imgs/1.png"
     },
     {
       "userId": 2,
       "name": "axutuzaxa",
       "birthday": "3/10",
+      "imgUrl": "../assets/imgs/2.png"
+
     },
     {
       "userId": 3,
       "name": "yusuke",
       "birthday": "3/6",
+      "imgUrl": "../assets/imgs/1.png"
     }
     ];
+
+  dataList: any;
 
   constructor(public navCtrl: NavController, public actionSheetCtrl: ActionSheetController, private storage: Storage) {
     this.getStorage();
@@ -66,7 +72,8 @@ export class HomePage {
   getStorage() {
     this.storage.get('name').then(
       (val) => {
-        console.log(val.profile.kyuusyu[2].for);
+        this.dataList = val;
+        console.log(this.dataList);
       })
   }
 
