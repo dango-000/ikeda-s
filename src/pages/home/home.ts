@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -8,8 +9,26 @@ import { ActionSheetController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public actionSheetCtrl: ActionSheetController) {
+  profileList =
+    [{
+      "userId": 1,
+      "name": "yoshiki",
+      "birthday": "12/20",
+    },
+    {
+      "userId": 2,
+      "name": "axutuzaxa",
+      "birthday": "3/10",
+    },
+    {
+      "userId": 3,
+      "name": "yusuke",
+      "birthday": "3/6",
+    }
+    ];
 
+  constructor(public navCtrl: NavController, public actionSheetCtrl: ActionSheetController, private storage: Storage) {
+    this.getStorage();
   }
 
   tapAction() {
@@ -38,6 +57,17 @@ export class HomePage {
     });
 
     actionSheet.present();
+  }
+
+  setStorage() {
+    this.storage.set('name', this.profileList);
+  }
+
+  getStorage() {
+    this.storage.get('name').then(
+      (val) => {
+        console.log(val.profile.kyuusyu[2].for);
+      })
   }
 
 }

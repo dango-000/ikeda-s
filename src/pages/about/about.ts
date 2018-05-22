@@ -11,4 +11,6 @@ export class AboutPage {
 
   }
 
+items = ["いいね","名前","年齢"]
+
 }
